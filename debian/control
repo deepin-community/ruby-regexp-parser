@@ -1,0 +1,37 @@
+Source: ruby-regexp-parser
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Team <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Pirate Praveen <praveen@debian.org>
+Build-Depends: debhelper-compat (= 13),
+               gem2deb (>= 1),
+               rake,
+               ruby-rspec,
+               ruby-regexp-property-values,
+               ruby-ice-nine
+Standards-Version: 4.6.0
+Vcs-Git: https://salsa.debian.org/ruby-team/ruby-regexp-parser.git
+Vcs-Browser: https://salsa.debian.org/ruby-team/ruby-regexp-parser
+Homepage: https://github.com/ammar/regexp_parser
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-regexp-parser
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${misc:Depends},
+         ${ruby:Depends},
+         ${shlibs:Depends}
+Breaks: ruby-ecma-re-validator (<< 0.3~),
+ ruby-json-schemer (<< 0.2.18~),
+ ruby-js-regex (<< 3.7~)
+Description: Scanner, lexer, parser for ruby's regular expressions
+ A library for tokenizing, lexing, and parsing Ruby regular expressions.
+ .
+  * Multilayered
+    * A scanner/tokenizer based on Ragel
+    * A lexer that produces a "stream" of token objects.
+    * A parser that produces a "tree" of Expression objects (OO API)
+  * Runs on Ruby 1.9, 2.x, and JRuby (1.9 mode) runtimes.
+  * Recognizes Ruby 1.8, 1.9, and 2.x regular expressions
